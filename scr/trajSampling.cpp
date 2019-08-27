@@ -70,7 +70,6 @@ int trajectories(double X0[2*num_state_variable], double Uncertainty[2*num_uncer
         int ix = 0;
         double next_digit = i + 0.;
         for (int n=num_state_variable-1; n>=0; n--) {
-
             ix = (int) (next_digit  / pow(samples, n));
             (*data).state[n] = X0[n] + (X0[n + num_state_variable] - X0[n]) / (samples - 1) * ix;
             next_digit -= ix * pow(samples,n);
@@ -90,7 +89,7 @@ int trajectories(double X0[2*num_state_variable], double Uncertainty[2*num_uncer
             }
 
 
-            for (int n = 0; n < num_state_redundant  ; n++) {
+            for (int n = 0; n < num_state_variable  ; n++) {
                 NV_Ith_S(x, n) =(*data).state[n];
             }
 

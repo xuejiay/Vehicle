@@ -15,7 +15,7 @@ int main() {
     double cpu0  = get_cpu_time();
 
 //    trajectories(InputDataSDI.X0, InputDataSDI.Uncertainty,InputDataSDI);
-//    SDI(InputDataSDI.X0, InputDataSDI.Uncertainty,InputDataSDI);
+    SDI(InputDataSDI.X0, InputDataSDI.Uncertainty,InputDataSDI);
     //cout << pow(M_PI/12,2)/4 << endl;
 //    DI_constraints(InputDataDI_cst.X0, InputDataDI_cst.Uncertainty,InputDataDI_cst);
 //    DI_constraints_advance(InputDataDI_cst_advance.X0, InputDataDI_cst_advance.Uncertainty, InputDataDI_cst_advance);
