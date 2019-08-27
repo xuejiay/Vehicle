@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="double_integrator"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="double_integrator">
+				<Option output="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/double_integrator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xuejiaoyang/sundial/instdir/include"/>
+					<Add directory="/Users/xuejiaoyang/MC++/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 double_integrator"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="double_integrator/fast">
+				<Option output="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/double_integrator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xuejiaoyang/sundial/instdir/include"/>
+					<Add directory="/Users/xuejiaoyang/MC++/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 double_integrator/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuejiaoyang/Documents/github/double_integrator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/DI_CST.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/DI_CST_advance.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/SDI.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/main.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/rhs.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/trajSampling.cpp">
+			<Option target="double_integrator"/>
+		</Unit>
+		<Unit filename="/Users/xuejiaoyang/Documents/github/double_integrator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
