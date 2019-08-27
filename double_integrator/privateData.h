@@ -8,7 +8,7 @@
 
 /* Dimensions number*/
 #define num_state_variable              7     // number of state variables x in original ODE systems
-#define num_state_redundant             3
+#define num_state_redundant             10
 #define num_state_redundant_advance     5
 #define num_reference_input             2
 #define num_uncertain_parameter         0
@@ -22,7 +22,7 @@
 #define Ith(v,i)    NV_Ith_S(v,i-1)       /* Ith numbers components 1..NEQ */
 
 #define File_Output              0                                      //whether output data of sampling
-#define File_Output_SDI          1                                     //whether output data of SDI bd
+#define File_Output_SDI          0                                     //whether output data of SDI bd
 #define File_Output_DI           0                                      //whether output data of DI with constraints bd
 #define File_Output_DI_advance   0                                      //whether output data of DI with constraints and z bd
 

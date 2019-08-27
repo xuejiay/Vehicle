@@ -159,6 +159,23 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             fx = alphad;
             break;
         }
+        case 7: {
+            IA ev = v-vd;
+            fx = -vd*k2*pow(efi,2.)-k3* pow(ev,2.);
+            break;
+        }
+
+
+        case 8: {
+            IA ev = v-vd;
+            fx = -vd*k2*pow(efi,2.)-k3*pow(ev,2)-k4* pow(x_vector[9],2);
+            break;
+        }
+
+        case 9: {
+
+            fx = -efi*v-k4*x_vector[9];
+        }
 
     }
 
@@ -171,9 +188,32 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
 void refinement(IA x_vector[num_state_redundant], IA *p) {
     //natural bound here
     for (int l = 0; l < num_loop; l++) {
-        IA //e=x_vector[0], theta_e = x_vector[1], V = x_vector[2],
-                a = 2, g2 = pow(a,
-                                2), invers_V, eSQR, theta_eSQR, invers_eSQR, invers_thetaeSQR, invers_e, invers_thetae;
+        IA vd = x_vector[5], invers_V, invers_edeltaSq, edeltaSq, invers_edelta;
+
+        //the squire of the errors
+        VcOrig = x_vector[8]
+        VOrig = x_vector[7]
+
+
+        //refine V and square of edelta using Vc
+        invers_V = x_vector[8]-0.5*pow(x_vector[9],2.);
+        extendIntersection(&x_vector[7], invers_V);
+
+        invers_edeltaSq = 2*(x_vector[8]-x_vector[7]);
+        edeltaSq = pow(x_vector[9],2);
+        extendIntersection(&edeltaSq, invers_edeltaSq);
+
+        invers_edelta = SQRinterval(edeltaSq);
+        extendIntersection(&x_vector[9], invers_edelta);
+
+        Yl7sqr=min(max(edeltaOrigSqr[0][0],invers_edeltaSqr[0][0]),edeltaOrigSqr[0][1])
+        Yu7sqr=max(min(edeltaOrigSqr[0][1],invers_edeltaSqr[0][1]),edeltaOrigSqr[0][0])
+        edeltaOrigSqr=interval([Yl7sqr,Yu7sqr])
+
+
+
+
+
 
         eSQR = pow(x_vector[0], 2);
         theta_eSQR = pow(x_vector[1], 2);
