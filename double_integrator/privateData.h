@@ -23,7 +23,7 @@
 
 #define File_Output              0                                      //whether output data of sampling
 #define File_Output_SDI          0                                     //whether output data of SDI bd
-#define File_Output_DI           0                                      //whether output data of DI with constraints bd
+#define File_Output_DI           1                                      //whether output data of DI with constraints bd
 #define File_Output_DI_advance   0                                      //whether output data of DI with constraints and z bd
 
 
@@ -32,7 +32,7 @@
 #define T0    RCONST(0.0)      /* initial time           */
 #define Tf    RCONST(0.005)      /* first output time      */
 #define TMULT RCONST(0.1)     /* output time factor     */
-#define NOUT  4//749//850//840//574//765              /* number of output times */
+#define NOUT  8//749//850//840//574//765              /* number of output times */
 
 
 

@@ -8,7 +8,7 @@ Created on Fri Apr 12 16:41:24 2019
 import numpy as np
 import matplotlib.pyplot as plt  
 num_state=7
-num_state_advance=3
+num_state_advance=10
 num_state_advancez=5
 #df = pd.read_csv("States.csv")
 #with open('States.csv', newline='') as csvfile:
@@ -20,7 +20,7 @@ step = 8*1
 name = ['$e_t$ (m)','$e_n$ (m)', '$e_{\phi}$','v', '$\kappa_{\delta}$']
 states=np.genfromtxt('States.csv', delimiter=',')
 SDIbd=np.genfromtxt('StatesBD_SDI.csv', delimiter=',')
-#DIcst=np.genfromtxt('StatesBD_DI_CST.csv', delimiter=',')
+DIcst=np.genfromtxt('StatesBD_DI_CST.csv', delimiter=',')
 #DIcstz=np.genfromtxt('StatesBD_DI_CST_advance.csv', delimiter=',')
 ref=np.genfromtxt('ref.csv', delimiter=',')
 for i in range(num_state):
@@ -33,8 +33,8 @@ for i in range(num_state):
         plt.plot(sample[:,0],sample[:,i+1],color = '0.75')
     plt.plot(SDIbd[:,0],SDIbd[:,i+1],color = 'b')
     plt.plot(SDIbd[:,0],SDIbd[:,i+num_state+1],color = 'b')
-#    plt.plot(DIcst[:,0],DIcst[:,i+1],color = 'g')
-#    plt.plot(DIcst[:,0],DIcst[:,i+num_state_advance+1],color = 'g')
+    plt.plot(DIcst[:,0],DIcst[:,i+1],color = 'g')
+    plt.plot(DIcst[:,0],DIcst[:,i+num_state_advance+1],color = 'g')
 #    plt.plot(DIcstz[:,0],DIcstz[:,i+1],color = 'm')
 #    plt.plot(DIcstz[:,0],DIcstz[:,i+num_state_advancez+1],color = 'm')
     plt.xlabel('t (s)',fontsize=16)

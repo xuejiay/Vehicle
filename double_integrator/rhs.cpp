@@ -133,11 +133,11 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             IA IntFunc2, IntFunc3;
 
             if (efiU * efiL <= 0) {
-                IntFunc2 = IA(sin(U) / U, 1),
-                        IntFunc3 = IA(-0.5, (cos(U) - 1) / pow(U, 2));
+                IntFunc2 = IA(sin(U) / U, 1);
+                IntFunc3 = IA(-0.5, (cos(U) - 1) / pow(U, 2));
             } else {
-                IntFunc2 = IA(sin(U) / U, sin(L) / L),
-                        IntFunc3 = IA((cos(L) - 1) / pow(L, 2), (cos(U) - 1) / pow(U, 2));
+                IntFunc2 = IA(sin(U) / U, sin(L) / L);
+                IntFunc3 = IA((cos(L) - 1) / pow(L, 2), (cos(U) - 1) / pow(U, 2));
             }
             if (efiU == 0. && efiL == 0.) {
                 IntFunc2 = IA(1.), IntFunc3 = IA(-0.5);
@@ -161,14 +161,14 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
         }
         case 7: {
             IA ev = v-vd;
-            fx = -vd*k2*pow(efi,2.)-k3* pow(ev,2.);
+            fx = -vd*k2*pow(efi,2)-k3* pow(ev,2);
             break;
         }
 
 
         case 8: {
             IA ev = v-vd;
-            fx = -vd*k2*pow(efi,2.)-k3*pow(ev,2)-k4* pow(x_vector[9],2);
+            fx = -vd*k2*pow(efi,2)-k3*pow(ev,2)-k4* pow(x_vector[9],2);
             break;
         }
 
@@ -187,71 +187,78 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
 
 void refinement(IA x_vector[num_state_redundant], IA *p) {
     //natural bound here
+    IA vd = x_vector[5], invers_V, invers_edeltaSq, edeltaSq, invers_edelta;
+    IA k1 = 2.0, k2 = 3.0, invers_etSq, etSq, invers_et, invers_enSq, enSq, invers_en,
+    invers_efiSq, efiSq, invers_efi, invers_evSq, evSq, invers_ev;
+    edeltaSq = pow(x_vector[9],2);
+    etSq=pow(x_vector[0],2);
+    enSq=pow(x_vector[1],2);
+    efiSq=pow(x_vector[2],2);
+    evSq=pow((x_vector[3]-vd),2);
     for (int l = 0; l < num_loop; l++) {
-        IA vd = x_vector[5], invers_V, invers_edeltaSq, edeltaSq, invers_edelta;
-
-        //the squire of the errors
-        VcOrig = x_vector[8]
-        VOrig = x_vector[7]
 
 
         //refine V and square of edelta using Vc
-        invers_V = x_vector[8]-0.5*pow(x_vector[9],2.);
+
+        invers_V = x_vector[8]-0.5*edeltaSq;
         extendIntersection(&x_vector[7], invers_V);
 
         invers_edeltaSq = 2*(x_vector[8]-x_vector[7]);
-        edeltaSq = pow(x_vector[9],2);
         extendIntersection(&edeltaSq, invers_edeltaSq);
 
         invers_edelta = SQRinterval(edeltaSq);
         extendIntersection(&x_vector[9], invers_edelta);
 
-        Yl7sqr=min(max(edeltaOrigSqr[0][0],invers_edeltaSqr[0][0]),edeltaOrigSqr[0][1])
-        Yu7sqr=max(min(edeltaOrigSqr[0][1],invers_edeltaSqr[0][1]),edeltaOrigSqr[0][0])
-        edeltaOrigSqr=interval([Yl7sqr,Yu7sqr])
 
+        // Use V to refine the other errors
+        //et
+        invers_etSq = (x_vector[7]*2-k1*enSq-efiSq-evSq)/k1;
+        extendIntersection(&etSq, invers_etSq);
+        invers_et = SQRinterval(etSq);
+        extendIntersection(&x_vector[0], invers_et);
 
+        //en
+        invers_enSq = (x_vector[7]*2-k1*etSq-efiSq-evSq)/k1;
+        extendIntersection(&enSq, invers_enSq);
+        invers_en = SQRinterval(enSq);
+        extendIntersection(&x_vector[1], invers_en);
 
+        //efi
+        invers_efiSq = x_vector[7]*2-k1*etSq-k1*enSq-evSq;
+        extendIntersection(&efiSq, invers_efiSq);
+        invers_efi = SQRinterval(efiSq);
+        extendIntersection(&x_vector[2], invers_efi);
 
+        //ev
+        invers_evSq = x_vector[7]*2-k1*etSq-k1*enSq-efiSq;
+        extendIntersection(&evSq, invers_evSq);
+        invers_ev = SQRinterval(evSq);
+        extendIntersection(&x_vector[3], invers_ev+vd);
 
+        //edelta = kdelta - epsilon
+        IA epsilon, invers_kdelta, IntFunc1, IntFunc2;
 
-        eSQR = pow(x_vector[0], 2);
-        theta_eSQR = pow(x_vector[1], 2);
-
-
-        // refine lyapunov function V
-        invers_V = (eSQR + theta_eSQR / g2) / 2;
-        // Taking intersection with the original interval
-        extendIntersection(&x_vector[2], invers_V);
-
-
-        // refine e^2
-        invers_eSQR = 2 * x_vector[2] - theta_eSQR / g2;
-        extendIntersection(&eSQR, invers_eSQR);
-        // refine e
-        if (eSQR.u() > 0.0001) {
-
-            invers_e = hull(sqrt(eSQR), -sqrt(eSQR));
-        } else {
-            invers_e.u(50. * eSQR.u() + (0.01 - 5. * pow(10., -3)));
-            invers_e.l(-50. * eSQR.u() + (-0.01 + 5. * pow(10., -3)));
+        IntFunc1 = IA((cos(x_vector[2].u())-1)/x_vector[2].u(),
+                             (cos(x_vector[2].l())-1)/x_vector[2].l());
+        double U = max(abs(x_vector[2].u()), abs(x_vector[2].l()));
+        double L = min(abs(x_vector[2].u()), abs(x_vector[2].l()));
+        if (x_vector[2].u()* x_vector[2].l()<=0){
+            IntFunc2 = IA(sin(U)/U, 1.);
         }
-        extendIntersection(&x_vector[0], invers_e);
-
-
-        // refine theta_e^2
-        invers_thetaeSQR = (2 * x_vector[2] - eSQR) * g2;
-        extendIntersection(&theta_eSQR, invers_thetaeSQR);
-        p[1] = theta_eSQR;
-        // refine e
-        if (theta_eSQR.u() > 0.0001) {
-
-            invers_thetae = hull(sqrt(theta_eSQR), -sqrt(theta_eSQR));
-        } else {
-            invers_thetae.u(50. * theta_eSQR.u() + (0.01 - 5. * pow(10, -3)));
-            invers_thetae.l(-50. * theta_eSQR.u() + (-0.01 + 5. * pow(10, -3)));
+        else {
+            IntFunc2 = IA(sin(U)/U, sin(L)/L);
         }
-        extendIntersection(&x_vector[1], invers_thetae);
+        if (x_vector[2].u() == 0. && x_vector[2].l() ==0){
+            IntFunc2 = IA(1.);
+        }
+
+        epsilon = x_vector[6]/vd-k1*(x_vector[0]*IntFunc1+x_vector[1]*IntFunc2)-k2*x_vector[2];
+
+        invers_kdelta = x_vector[9] + epsilon;
+        extendIntersection(&x_vector[4], invers_kdelta);
+
+        invers_edelta = x_vector[4] - epsilon;
+        extendIntersection(&x_vector[9], invers_edelta);
 
     }
 
@@ -383,6 +390,10 @@ static IA SQRinterval(IA SQinterval) {
 
     IA SQR_invers;
     if (SQinterval.u() > 0.0001) {
+//        if (SQinterval.l()<0){
+//            std::cout<<SQinterval.l()<<std::endl;
+//
+//        }
 
         SQR_invers = hull(sqrt(SQinterval), -sqrt(SQinterval));
     } else {
