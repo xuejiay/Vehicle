@@ -60,7 +60,7 @@ double rhs(double t, double *x_vector, double *p, double *ref, int i) {
         }
         case 4: {
             double epsilon = kd - k1 * (et * (cos(efi) - 1) / efi + en * (sin(efi) / efi)) - k2 * efi,
-                    kd_dot = pow((alphad * vd - aref * wref) / vd, 2.), et_dot = v * cos(efi) - vd * (1 - kd * en),
+                    kd_dot = pow((alphad * vd - aref * wref) / vd, 2), et_dot = v * cos(efi) - vd * (1 - kd * en),
                     en_dot = v * sin(efi) - vd * kd * et, efi_dot = v * kdelta - vd * kd,
                     epsilon_dot = kd_dot - k1 * (et_dot * (cos(efi) - 1) / efi +
                                                  et * efi_dot * (-sin(efi) / efi - (cos(efi) - 1) / pow(efi, 2)) +
@@ -90,7 +90,7 @@ double rhs(double t, double *x_vector, double *p, double *ref, int i) {
 
 IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
     IA fx;
-    IA k1 = 2.0, k2 = 3.0, k3 = 1.0, k4 = 10.;
+    IA k1 = 2.0, k2 = 3.0, k3 = 1.0, k4 = 10., l = 2.0;
     IA et = x_vector[0], en = x_vector[1], efi = x_vector[2],
             v = x_vector[3], kdelta = x_vector[4], vd = x_vector[5], wref = x_vector[6],
             aref = ref[0], alphad = ref[1], kd = wref / vd;
@@ -119,7 +119,7 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
         }
 
         case 4: {
-            IA kd_dot = pow((alphad * vd - aref * wref) / vd, 2.), et_dot = v * cos(efi) - vd * (1 - kd * en),
+            IA kd_dot = pow((alphad * vd - aref * wref) / vd, 2), et_dot = v * cos(efi) - vd * (1 - kd * en),
                     en_dot = v * sin(efi) - vd * kd * et, efi_dot = v * kdelta - vd * kd;
             double efiL = efi.l();
             double efiU = efi.u();
@@ -164,17 +164,60 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             fx = -vd*k2*pow(efi,2)-k3* pow(ev,2);
             break;
         }
-
-
         case 8: {
             IA ev = v-vd;
             fx = -vd*k2*pow(efi,2)-k3*pow(ev,2)-k4* pow(x_vector[9],2);
             break;
         }
-
         case 9: {
-
             fx = -efi*v-k4*x_vector[9];
+            break;
+        }
+        case 10:{
+            fx = v * cos(x_vector[12]);
+            break;
+        }
+        case 11: {
+            fx = v * sin(x_vector[12]);
+            break;
+        }
+        case 12:{
+
+            fx = v * tan(x_vector[13])/l;
+            break;
+        }
+        case 13:{
+            IA  kd_dot = pow((alphad * vd - aref * wref) / vd, 2), et_dot = v * cos(efi) - vd * (1 - kd * en),
+            en_dot = v * sin(efi) - vd * kd * et, efi_dot = v * kdelta - vd * kd;
+            double efiL = efi.l();
+            double efiU = efi.u();
+            IA IntFunc1, IntFunc4;
+            IntFunc1.l((cos(efiU) - 1) / efiU);
+            IntFunc1.u((cos(efiL) - 1) / efiL);
+            IntFunc4.l(pow((efiU * cos(efiU) - sin(efiU)) / efiU, 2));
+            IntFunc4.l(pow((efiL * cos(efiL) - sin(efiL)) / efiL, 2));
+
+
+            double U = max(abs(efiU), abs(efiL)), L = min(abs(efiL), abs(efiL));
+            IA IntFunc2, IntFunc3;
+            if (efiU * efiL <= 0) {
+                IntFunc2 = IA(sin(U) / U, 1);
+                IntFunc3 = IA(-0.5, (cos(U) - 1) / pow(U, 2));
+            } else {
+                IntFunc2 = IA(sin(U) / U, sin(L) / L);
+                IntFunc3 = IA((cos(L) - 1) / pow(L, 2), (cos(U) - 1) / pow(U, 2));
+            }
+            if (efiU == 0. && efiL == 0.) {
+                IntFunc2 = IA(1.), IntFunc3 = IA(-0.5);
+            }
+
+            IA epsilon = kd - k1 * (et * IntFunc1 + en * IntFunc2) - k2 * efi,
+                    epsilon_dot = kd_dot - k1 * (et_dot * IntFunc1 - et * efi_dot * (IntFunc2 + IntFunc3) +
+                                                 en_dot * IntFunc2 + en * efi_dot * IntFunc4) - k2 * efi_dot,
+                    edelta = kdelta - epsilon;
+            IA w1=-efi*v+epsilon_dot-k4*edelta;
+            fx = w1/(1.0/l+l*pow(kdelta,2));
+            break;
         }
 
     }
@@ -186,7 +229,6 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
 
 
 void refinement(IA x_vector[num_state_redundant], IA *p) {
-    //natural bound here
     IA vd = x_vector[5], invers_V, invers_edeltaSq, edeltaSq, invers_edelta;
     IA k1 = 2.0, k2 = 3.0, invers_etSq, etSq, invers_et, invers_enSq, enSq, invers_en,
     invers_efiSq, efiSq, invers_efi, invers_evSq, evSq, invers_ev;
@@ -267,112 +309,113 @@ void refinement(IA x_vector[num_state_redundant], IA *p) {
 
 
 void refinement_advance(IA x_vector[num_state_redundant_advance], IA *p) {
-    //natural bound here
+    IA vd = x_vector[5], invers_V, invers_edeltaSq, edeltaSq, invers_edelta;
+    IA k1 = 2.0, k2 = 3.0, invers_etSq, etSq, invers_et, invers_enSq, enSq, invers_en,
+            invers_efiSq, efiSq, invers_efi, invers_evSq, evSq, invers_ev;
+    edeltaSq = pow(x_vector[9],2);
+    etSq=pow(x_vector[0],2);
+    enSq=pow(x_vector[1],2);
+    efiSq=pow(x_vector[2],2);
+    evSq=pow((x_vector[3]-vd),2);
     for (int l = 0; l < num_loop; l++) {
-        IA //e=x_vector[0], theta_e = x_vector[1], V = x_vector[2],
-                a = 2, g2 = pow(a,
-                                2), invers_V, eSQR, theta_eSQR, invers_eSQR, invers_thetaeSQR, invers_e, invers_thetae;
-
-        eSQR = pow(x_vector[0], 2);
-        theta_eSQR = pow(x_vector[1], 2);
 
 
-        // refine lyapunov function V
-        invers_V = (eSQR + theta_eSQR / g2) / 2;
-        // Taking intersection with the original interval
-        extendIntersection(&x_vector[2], invers_V);
+        //refine V and square of edelta using Vc
+
+        invers_V = x_vector[8]-0.5*edeltaSq;
+        extendIntersection(&x_vector[7], invers_V);
+
+        invers_edeltaSq = 2*(x_vector[8]-x_vector[7]);
+        extendIntersection(&edeltaSq, invers_edeltaSq);
+
+        invers_edelta = SQRinterval(edeltaSq);
+        extendIntersection(&x_vector[9], invers_edelta);
 
 
-        // refine e^2
-        invers_eSQR = 2 * x_vector[2] - theta_eSQR / g2;
-        extendIntersection(&eSQR, invers_eSQR);
-        // refine e
-        if (eSQR.u() > 0.0001) {
+        // Use V to refine the other errors
+        //et
+        invers_etSq = (x_vector[7]*2-k1*enSq-efiSq-evSq)/k1;
+        extendIntersection(&etSq, invers_etSq);
+        invers_et = SQRinterval(etSq);
+        extendIntersection(&x_vector[0], invers_et);
 
-            invers_e = hull(sqrt(eSQR), -sqrt(eSQR));
-        } else {
-            invers_e.u(50. * eSQR.u() + (0.01 - 5. * pow(10., -3)));
-            invers_e.l(-50. * eSQR.u() + (-0.01 + 5. * pow(10., -3)));
+        //en
+        invers_enSq = (x_vector[7]*2-k1*etSq-efiSq-evSq)/k1;
+        extendIntersection(&enSq, invers_enSq);
+        invers_en = SQRinterval(enSq);
+        extendIntersection(&x_vector[1], invers_en);
+
+        //efi
+        invers_efiSq = x_vector[7]*2-k1*etSq-k1*enSq-evSq;
+        extendIntersection(&efiSq, invers_efiSq);
+        invers_efi = SQRinterval(efiSq);
+        extendIntersection(&x_vector[2], invers_efi);
+
+        //ev
+        invers_evSq = x_vector[7]*2-k1*etSq-k1*enSq-efiSq;
+        extendIntersection(&evSq, invers_evSq);
+        invers_ev = SQRinterval(evSq);
+        extendIntersection(&x_vector[3], invers_ev+vd);
+
+        //edelta = kdelta - epsilon
+        IA epsilon, invers_kdelta, IntFunc1, IntFunc2;
+
+        IntFunc1 = IA((cos(x_vector[2].u())-1)/x_vector[2].u(),
+                      (cos(x_vector[2].l())-1)/x_vector[2].l());
+        double U = max(abs(x_vector[2].u()), abs(x_vector[2].l()));
+        double L = min(abs(x_vector[2].u()), abs(x_vector[2].l()));
+        if (x_vector[2].u()* x_vector[2].l()<=0){
+            IntFunc2 = IA(sin(U)/U, 1.);
         }
-        extendIntersection(&x_vector[0], invers_e);
-
-
-        // refine theta_e^2
-        invers_thetaeSQR = (2 * x_vector[2] - eSQR) * g2;
-        extendIntersection(&theta_eSQR, invers_thetaeSQR);
-        p[1] = theta_eSQR;
-        // refine e
-        if (theta_eSQR.u() > 0.0001) {
-
-            invers_thetae = hull(sqrt(theta_eSQR), -sqrt(theta_eSQR));
-        } else {
-            invers_thetae.u(50. * theta_eSQR.u() + (0.01 - 5. * pow(10, -3)));
-            invers_thetae.l(-50. * theta_eSQR.u() + (-0.01 + 5. * pow(10, -3)));
+        else {
+            IntFunc2 = IA(sin(U)/U, sin(L)/L);
         }
-        extendIntersection(&x_vector[1], invers_thetae);
+        if (x_vector[2].u() == 0. && x_vector[2].l() ==0){
+            IntFunc2 = IA(1.);
+        }
+
+        epsilon = x_vector[6]/vd-k1*(x_vector[0]*IntFunc1+x_vector[1]*IntFunc2)-k2*x_vector[2];
+
+        invers_kdelta = x_vector[9] + epsilon;
+        extendIntersection(&x_vector[4], invers_kdelta);
+
+        invers_edelta = x_vector[4] - epsilon;
+        extendIntersection(&x_vector[9], invers_edelta);
 
 
-        //z1 = cos(theta)
-        //z2 = tan(theta)
 
 
-        IA invers_z1, invers_z2, z1SQR, z1SQR_invers, z2SQR, z2SQR_invers;
+        // Use coordinate transformation as constraints
+        double length =2.;
 
-        invers_z1 = cos(x_vector[1]);
-        invers_z2 = tan(x_vector[1]);
-        extendIntersection(&x_vector[3], invers_z1);
-        extendIntersection(&x_vector[4], invers_z2);
+        IA invers_x1 = cos(x_vector[16])*x_vector[0]-sin(x_vector[16])*x_vector[1]+x_vector[14];
+        extendIntersection(&x_vector[10], invers_x1);
 
+        IA invers_x2 = sin(x_vector[16])*x_vector[0]+cos(x_vector[16])*x_vector[1]+x_vector[15];
+        extendIntersection(&x_vector[11], invers_x2);
 
+        IA invers_phi = x_vector[2]+x_vector[16];
+        extendIntersection(&x_vector[12], invers_phi);
 
-        //z2SQR + 1= 1/z1SQR
-        z1SQR = pow(x_vector[3], 2);
-        z2SQR = pow(x_vector[4], 2);
-
-        z1SQR_invers = 1. / (z2SQR + 1.);
-        extendIntersection(&z1SQR, z1SQR_invers);
-        p[2] = z1SQR;
-
-        z2SQR_invers = 1. / z1SQR - 1.;
-        extendIntersection(&z2SQR, z2SQR_invers);
+        IA invers_delta = atan(length*x_vector[4]);
+        extendIntersection(&x_vector[13], invers_delta);
 
 
-        //square root of z1 and z2
-        IA z1_invers = SQRinterval(z1SQR);
-        extendIntersection(&x_vector[3], z1_invers);
+        invers_et = cos(x_vector[16])*(x_vector[10]-x_vector[14]) + sin(x_vector[16])*(x_vector[11]-x_vector[15]);
+        extendIntersection(&x_vector[0], invers_et);
 
-        IA z2_invers = SQRinterval(z2SQR);
-        extendIntersection(&x_vector[4], z2_invers);
+        invers_en = -sin(x_vector[16])*(x_vector[10]-x_vector[14]) + cos(x_vector[16])*(x_vector[11]-x_vector[15]);
+        extendIntersection(&x_vector[1], invers_en);
 
+        invers_efi =  x_vector[12] - x_vector[16];
+        extendIntersection(&x_vector[2], invers_efi);
 
-        //use z1 and z2 to refine for theta_e
-        //z1 = cos(theta)
-        //z2 = tan(theta)
-        // avoid beyond -1,1
+        invers_kdelta = tan(x_vector[13])/length;
+        extendIntersection(&x_vector[4], invers_kdelta);
 
-        x_vector[3].l(min(max(-1., x_vector[3].l()), 1.));
-        x_vector[3].u(max(min(1., x_vector[3].u()), -1.));
-
-        //x_vector[4].l(min(max(-1.,x_vector[4].l()),1.));
-        //x_vector[4].u(max(min(1.,x_vector[4].u()),-1.));
-
-        invers_thetae = atan(x_vector[4]);
-        extendIntersection(&x_vector[1], invers_thetae);
-
-
-        invers_thetae = hull(acos(x_vector[3]), -acos(x_vector[3]));
-        extendIntersection(&x_vector[1], invers_thetae);
-
-
-        //use z1 and z2 to refine for theta_e
-        // z2*z1 = sin(theta)
-        IA Z1Z2 = sin(x_vector[1]);
-        //IA Z1Z2_invers=x_vector[4]*x_vector[3];
-        extendIntersection(&Z1Z2, x_vector[4] * x_vector[3]);
-
-        invers_thetae = asin(Z1Z2);
-        extendIntersection(&x_vector[1], invers_thetae);
-
+//        std::cout<< "inside tan" << length*x_vector[4]<<std::endl;
+//        std::cout<< "inverse is" << invers_delta<<std::endl;
+//        std::cout<<"refined is "<<x_vector[13]<<std::endl;
     }
 
 

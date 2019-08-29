@@ -9,19 +9,19 @@ import numpy as np
 import matplotlib.pyplot as plt  
 num_state=7
 num_state_advance=10
-num_state_advancez=5
+num_state_advancez=17
 #df = pd.read_csv("States.csv")
 #with open('States.csv', newline='') as csvfile:
 #    data = list(csv.reader(csvfile))
 #s = 78
 #
 #print(data[101*s:101*(s+1)])
-step = 8*1
+step = 8*10
 name = ['$e_t$ (m)','$e_n$ (m)', '$e_{\phi}$','v', '$\kappa_{\delta}$']
 states=np.genfromtxt('States.csv', delimiter=',')
 SDIbd=np.genfromtxt('StatesBD_SDI.csv', delimiter=',')
 DIcst=np.genfromtxt('StatesBD_DI_CST.csv', delimiter=',')
-#DIcstz=np.genfromtxt('StatesBD_DI_CST_advance.csv', delimiter=',')
+DIcstz=np.genfromtxt('StatesBD_DI_CST_advance.csv', delimiter=',')
 ref=np.genfromtxt('ref.csv', delimiter=',')
 for i in range(num_state):
     F=plt.figure(i) 
@@ -35,8 +35,8 @@ for i in range(num_state):
     plt.plot(SDIbd[:,0],SDIbd[:,i+num_state+1],color = 'b')
     plt.plot(DIcst[:,0],DIcst[:,i+1],color = 'g')
     plt.plot(DIcst[:,0],DIcst[:,i+num_state_advance+1],color = 'g')
-#    plt.plot(DIcstz[:,0],DIcstz[:,i+1],color = 'm')
-#    plt.plot(DIcstz[:,0],DIcstz[:,i+num_state_advancez+1],color = 'm')
+    plt.plot(DIcstz[:,0],DIcstz[:,i+1],color = 'm')
+    plt.plot(DIcstz[:,0],DIcstz[:,i+num_state_advancez+1],color = 'm')
     plt.xlabel('t (s)',fontsize=16)
     plt.ylabel(name[i],fontsize=16) 
     plt.grid()

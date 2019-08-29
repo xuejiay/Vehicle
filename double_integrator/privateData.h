@@ -9,13 +9,13 @@
 /* Dimensions number*/
 #define num_state_variable              7     // number of state variables x in original ODE systems
 #define num_state_redundant             10
-#define num_state_redundant_advance     5
+#define num_state_redundant_advance     17
 #define num_reference_input             2
 #define num_uncertain_parameter         0
 #define samples                         4
 #define num_loop                        2
 #define num_uncertainties               0
-#define num_piecewise                   1
+#define num_piecewise                   10
 /* Tolerance for the solver*/
 #define RTOL     RCONST(1.0e-6)   /* scalar relative tolerance            */
 #define ATOL     RCONST(1.0e-6)    // scalar absolute tolerance for original system
@@ -23,8 +23,8 @@
 
 #define File_Output              0                                      //whether output data of sampling
 #define File_Output_SDI          0                                     //whether output data of SDI bd
-#define File_Output_DI           1                                      //whether output data of DI with constraints bd
-#define File_Output_DI_advance   0                                      //whether output data of DI with constraints and z bd
+#define File_Output_DI           0                                      //whether output data of DI with constraints bd
+#define File_Output_DI_advance   1                                      //whether output data of DI with constraints and z bd
 
 
 
