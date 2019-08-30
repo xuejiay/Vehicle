@@ -7,111 +7,83 @@ Created on Wed Apr 17 10:13:58 2019
 """
 
 
+from interval import interval, imath
 import numpy as np
 
-#import Dubin_full as case
-from scipy.integrate import odeint
-#from coordtrans2 import rhs
-import matplotlib.pyplot as plt   
 
-
-num_state_advance=2
-xs = np.genfromtxt('ref.csv', delimiter=',')
-
-SDI = np.genfromtxt('origPosSDI.csv', delimiter=',')
-DI = np.genfromtxt('origPosDI_CST.csv', delimiter=',')
-
-SDI_s = np.genfromtxt('SDI_s.csv', delimiter=',')
-DI_s = np.genfromtxt('DIconstraints_s.csv', delimiter=',')
-advDI_s = np.genfromtxt('advanceDI_s.csv', delimiter=',')
-
-
-xs = np.genfromtxt('ref.csv', delimiter=',')
-X_meth3 = np.genfromtxt('StatesBD_SDI.csv', delimiter=',')
-el =X_meth3[:,1]
-eu =X_meth3[:,1+num_state_advance]
-t=X_meth3[:,0]
-
-
-origPos = np.zeros([len(X_meth3),4])
-   
-for i in range(len(X_meth3)):
-    theta_orth = xs[i,1]+np.pi/2
-    x = xs[i,2]
-    y = xs[i,3]
-    xel = el[i]*np.cos(theta_orth)
-    yel = el[i]*np.sin(theta_orth)
-    xl = x+xel
-    yl = y+yel
     
-    xeu = eu[i]*np.cos(theta_orth)
-    yeu = eu[i]*np.sin(theta_orth)
-    xu = x+xeu
-    yu = y+yeu  
+def erroPos2origPos(pe,pref,flag)  :
     
-    origPos[i,0] = xl
-    origPos[i,1] = yl
-    origPos[i,2] = xu
-    origPos[i,3] = yu
-    
-    
-
-step = 801*2    
-states = np.genfromtxt('States.csv', delimiter=',')  
-origPos = np.zeros([step,2])   
-F =plt.figure(0)
-for s in range(int(len(states)/step)):           
-    sample = states[step*s:step*(s+1),:]  
-    el =sample[:,1]
-    for i in range(len(sample)):
-        theta_orth = xs[i,1]+np.pi/2
-        x = xs[i,2]
-        y = xs[i,3]
-        xel = el[i]*np.cos(theta_orth)
-        yel = el[i]*np.sin(theta_orth)
-        xl = x+xel
-        yl = y+yel
-
+    Y0=pe[0]
+    Y1=pe[1]
+    Y2=pe[2]
+    Y3=pe[3]
+    Y4=pe[4]
+    phid=pref[2]
+    x1d=pref[0]
+    x2d=pref[1]
+    l=2.0
+    if flag == 0:
+        p_orig=np.zeros(5)
+        p_orig[0] = np.cos(phid)*Y0-np.sin(phid)*Y1+x1d
+        p_orig[1] = np.sin(phid)*Y0+np.cos(phid)*Y1+x2d
+        p_orig[2] = Y2+phid
+        p_orig[4] = Y3
+        p_orig[3] = np.arctan(l*Y4)
+    else:
+        p_orig=[0.]*5
+        p_orig[0] = imath.cos(phid)*Y0-imath.sin(phid)*Y1+x1d
+        p_orig[1] = imath.sin(phid)*Y0+imath.cos(phid)*Y1+x2d
+        p_orig[2] = Y2+phid
+        p_orig[4] = Y3
+        p_orig[3] = imath.atan(l*Y4)  
         
-        origPos[i,0] = xl
-        origPos[i,1] = yl
-
-    plt.plot(origPos[:,0],origPos[:,1],color = '0.75')
-plt.plot(DI[:,0],DI[:,1],color = 'g')    
-plt.plot(DI[:,0+2],DI[:,1+2],color = 'g')  
-plt.plot(SDI[:,0],SDI[:,1],color = 'b')    
-plt.plot(SDI[:,0+2],SDI[:,1+2],color = 'b')  
-
-plt.plot(SDI_s[0:7,4],SDI_s[0:7,5],color = 'r')  
-plt.plot(SDI_s[0:7,4+6],SDI_s[0:7,5+6],color = 'r')  
-plt.plot(DI_s[0:7,4],DI_s[0:7,5],color = 'm')  
-plt.plot(DI_s[0:7,4+7],DI_s[0:7,5+7],color = 'm')  
-plt.plot(advDI_s[0:7,4],advDI_s[0:7,5],color = 'k')  
-plt.plot(advDI_s[0:7,4+9],advDI_s[0:7,5+9],color = 'k')  
+    return p_orig 
 
 
 
-#plot for shor horizon
-#plt.plot(DI[0:50,0],DI[0:50,1],color = 'g')    
-#plt.plot(DI[0:50,0+2],DI[0:50,1+2],color = 'g')  
-#plt.plot(SDI[:,0],SDI[:,1],color = 'b')    
-#plt.plot(SDI[:,0+2],SDI[:,1+2],color = 'b')  
-#
-#plt.plot(SDI_s[0:7,4],SDI_s[0:7,5],color = 'r')  
-#plt.plot(SDI_s[0:7,4+6],SDI_s[0:7,5+6],color = 'r')  
-#plt.plot(DI_s[0:7,4],DI_s[0:7,5],color = 'm')  
-#plt.plot(DI_s[0:7,4+7],DI_s[0:7,5+7],color = 'm')  
-#plt.plot(advDI_s[0:7,4],advDI_s[0:7,5],color = 'k')  
-#plt.plot(advDI_s[0:7,4+9],advDI_s[0:7,5+9],color = 'k')  
-#
+
+num_state_constr=10
+
+#xs = np.genfromtxt('ref.csv', delimiter=',')
+states=np.genfromtxt('States.csv', delimiter=',')
+SDI=np.genfromtxt('StatesBD_SDI.csv', delimiter=',')
+DI=np.genfromtxt('StatesBD_DI_CST.csv', delimiter=',')
+DI_advanced=np.genfromtxt('StatesBD_DI_CST_advance.csv', delimiter=',')
+t=DI_advanced[:,0]
+step = 8*10
 
 
-name = ['x (m)','y (m)']
-plt.xlabel(name[0],fontsize=16)
-plt.ylabel(name[1],fontsize=16)  
-F.savefig('path',dpi=300)
-    
-    
+ref = DI_advanced[:,14+1:17+1]
+
+
+# original coordinates of sampled states
+state_origcoor = 5
+sample_orig = np.zeros([len(t),64*state_origcoor])
+for s in range(64):          
+    sample = states[step*s:step*(s+1),1:6] 
+    for i in range(len(t)):
+        sample_orig[i,s*state_origcoor:(s+1)*state_origcoor] = erroPos2origPos(sample[i],ref[i],0)
+
+
+# original coorinates of DI with constraints
+DI_CST_orig = np.zeros([len(t),state_origcoor*2])
+for i in range(len(t)):
+    DI_e = [0.]*state_origcoor
+    ref_interval = [0.]*state_origcoor
+    for j in range(state_origcoor):
+        DI_e[j] = interval([DI[i,j+1],DI[i,j+num_state_constr+1]])
+    for k in range(3):
+        ref_interval[k] = interval(ref[i,k])
+        
+    x_orig = erroPos2origPos(DI_e,ref_interval,1)
+    for l in range(state_origcoor):
+        DI_CST_orig[i,l] = x_orig[l][0][0]
+        DI_CST_orig[i,l+state_origcoor] = x_orig[l][0][1]
+        
+np.savetxt('DI_CST_orig.csv', DI_CST_orig, delimiter=',')    
+np.savetxt('sample_orig.csv', sample_orig, delimiter=',')          
+        
 #for j in range(2):
 #    F =plt.figure(j)
 ##    for s in range(num_sample):    

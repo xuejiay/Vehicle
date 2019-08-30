@@ -219,6 +219,18 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             fx = w1/(1.0/l+l*pow(kdelta,2));
             break;
         }
+        case 14:{
+            fx = vd*cos(x_vector[16]);
+            break;
+        }
+        case 15:{
+            fx = vd*sin(x_vector[16]);
+            break;
+        }
+        case 16:{
+            fx = wref;
+            break;
+        }
 
     }
 
