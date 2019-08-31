@@ -24,7 +24,7 @@
 #define File_Output              0                                      //whether output data of sampling
 #define File_Output_SDI          0                                     //whether output data of SDI bd
 #define File_Output_DI           0                                      //whether output data of DI with constraints bd
-#define File_Output_DI_advance   1                                      //whether output data of DI with constraints and z bd
+#define File_Output_DI_advance   0                                      //whether output data of DI with constraints and z bd
 
 
 
