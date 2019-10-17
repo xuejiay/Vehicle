@@ -126,8 +126,8 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             IA IntFunc1, IntFunc4;
             IntFunc1.l((cos(efiU) - 1) / efiU);
             IntFunc1.u((cos(efiL) - 1) / efiL);
-            IntFunc4.l(pow((efiU * cos(efiU) - sin(efiU)) / efiU, 2));
-            IntFunc4.l(pow((efiL * cos(efiL) - sin(efiL)) / efiL, 2));
+            IntFunc4.l((efiU * cos(efiU) - sin(efiU)) / pow(efiU, 2));
+            IntFunc4.l((efiL * cos(efiL) - sin(efiL)) / pow(efiL, 2));
 
             double U = max(abs(efiU), abs(efiL)), L = min(abs(efiL), abs(efiL));
             IA IntFunc2, IntFunc3;
