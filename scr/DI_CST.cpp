@@ -71,7 +71,7 @@ int DI_constraints(double X0[2*num_state_redundant], double Uncertainty[2*num_un
 
     for(int pctime=0;pctime<num_piecewise;pctime++) {
 
-        double tfinal = Tf + TMULT * NOUT;
+        double tfinal = Tf + TMULT * (NOUT-1);
 
         for (int j = 0; j < num_reference_input; j++) {
             (*data).referenceInput[j].l(Input.InputReference[pctime * num_reference_input + j]);
@@ -207,7 +207,7 @@ static int freal (realtype t, N_Vector x, N_Vector xdot, void *user_data) {
 
 
     IA fxl, fxu;
-
+//    int flat_flag[2 * num_state_redundant] = {1,1,1,1,1,0,0,1,1,1};
     //1) compute RHS of original state variables
     for (int i = 0; i < num_state_redundant; i++) { //loop from fi=1 to fi=n
 
@@ -216,8 +216,11 @@ static int freal (realtype t, N_Vector x, N_Vector xdot, void *user_data) {
             (*data).stateI[j].u(NV_Ith_S(x,j+num_state_redundant));
         }
         //flat the upper bound to lower bound
-        (*data).stateI[i].u(NV_Ith_S(x,i));
-        refinement((*data).stateI, (*data).uncertainties);
+//        if(flat_flag[i] == 1) {
+            //flat the upper bound to lower bound
+            (*data).stateI[i].u(NV_Ith_S(x, i));
+            refinement((*data).stateI, (*data).uncertainties);
+//        }
         fxl=rhsI(t,(*data).stateI, (*data).uncertainties,(*data).referenceInput,i);
 
 
@@ -226,8 +229,11 @@ static int freal (realtype t, N_Vector x, N_Vector xdot, void *user_data) {
             (*data).stateI[j].l(NV_Ith_S(x,j));
             (*data).stateI[j].u(NV_Ith_S(x,j+num_state_redundant));
         }
-        (*data).stateI[i].l(NV_Ith_S(x,i+num_state_redundant));
-        refinement((*data).stateI, (*data).uncertainties);
+//        if(flat_flag[i] == 1) {
+            //flat the upper bound to lower bound
+            (*data).stateI[i].l(NV_Ith_S(x, i + num_state_redundant));
+            refinement((*data).stateI, (*data).uncertainties);
+//        }
         fxu=rhsI(t,(*data).stateI, (*data).uncertainties,(*data).referenceInput,i);
 
 

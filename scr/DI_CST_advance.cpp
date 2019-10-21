@@ -73,7 +73,7 @@ int DI_constraints_advance(double* X0, double* Uncertainty, memberInfoDI_cst_adv
 
     for(int pctime=0;pctime<num_piecewise;pctime++) {
 
-        double tfinal = Tf + TMULT * NOUT;
+        double tfinal = Tf + TMULT * (NOUT-1);
 
         for (int j = 0; j < num_reference_input; j++) {
             (*data).referenceInput[j].l(Input.InputReference[pctime * num_reference_input + j]);
@@ -197,17 +197,21 @@ static int freal (realtype t, N_Vector x, N_Vector xdot, void *user_data) {
 
 
     IA fxl, fxu;
+    int flat_flag[2 * num_state_redundant_advance] = {1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,0};
+//    int flat_flag[2 * num_state_redundant_advance] = {1,1,1,1,1,1,1,0,0,0};
 
-    //1) compute RHS of original state variables
+    // 1) compute RHS of original state variables
     for (int i = 0; i < num_state_redundant_advance; i++) { //loop from fi=1 to fi=n
 
         for(int j=0;j<num_state_redundant_advance;j++){
             (*data).stateI[j].l(NV_Ith_S(x,j));
             (*data).stateI[j].u(NV_Ith_S(x,j+num_state_redundant_advance));
         }
-        //flat the upper bound to lower bound
-        (*data).stateI[i].u(NV_Ith_S(x,i));
-        refinement_advance((*data).stateI, (*data).uncertainties);
+        if(flat_flag[i] == 1){
+            //flat the upper bound to lower bound
+            (*data).stateI[i].u(NV_Ith_S(x, i));
+            refinement_advance((*data).stateI, (*data).uncertainties);
+        }
         fxl=rhsI(t,(*data).stateI, (*data).uncertainties,(*data).referenceInput,i);
 
 
@@ -216,15 +220,17 @@ static int freal (realtype t, N_Vector x, N_Vector xdot, void *user_data) {
             (*data).stateI[j].l(NV_Ith_S(x,j));
             (*data).stateI[j].u(NV_Ith_S(x,j+num_state_redundant_advance));
         }
-        (*data).stateI[i].l(NV_Ith_S(x,i+num_state_redundant_advance));
-        refinement_advance((*data).stateI, (*data).uncertainties);
+        if(flat_flag[i] == 1) {
+            (*data).stateI[i].l(NV_Ith_S(x, i + num_state_redundant_advance));
+            refinement_advance((*data).stateI, (*data).uncertainties);
+        }
         fxu=rhsI(t,(*data).stateI, (*data).uncertainties,(*data).referenceInput,i);
 
 
         NV_Ith_S(xdot, i)=fxl.l();
         NV_Ith_S(xdot, i+num_state_redundant_advance)=fxu.u();
 
-    } //End of computing bounds of original right hand side
+    } // End of computing bounds of original right hand side
 
     return(0);
 }

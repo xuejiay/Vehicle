@@ -32,7 +32,7 @@
 #define T0    RCONST(0.0)      /* initial time           */
 #define Tf    RCONST(0.005)      /* first output time      */
 #define TMULT RCONST(0.1)     /* output time factor     */
-#define NOUT  20//749//850//840//574//765              /* number of output times */
+#define NOUT  801//749//850//840//574//765              /* number of output times */
 
 
 

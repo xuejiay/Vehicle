@@ -44,14 +44,14 @@ def erroPos2origPos(pe,pref,flag)  :
 
 
 num_state_constr=10
-
+num_state=7
 #xs = np.genfromtxt('ref.csv', delimiter=',')
 states=np.genfromtxt('States.csv', delimiter=',')
 SDI=np.genfromtxt('StatesBD_SDI.csv', delimiter=',')
 DI=np.genfromtxt('StatesBD_DI_CST.csv', delimiter=',')
 DI_advanced=np.genfromtxt('StatesBD_DI_CST_advance.csv', delimiter=',')
 t=DI_advanced[:,0]
-step = 8*10
+step = 8*9
 
 
 ref = DI_advanced[:,14+1:17+1]
@@ -81,7 +81,24 @@ for i in range(len(t)):
         DI_CST_orig[i,l] = x_orig[l][0][0]
         DI_CST_orig[i,l+state_origcoor] = x_orig[l][0][1]
         
+        
+# original coorinates of SDI 
+SDI_orig = np.zeros([len(SDI),state_origcoor*2])
+for i in range(len(SDI)):
+    SDI_e = [0.]*state_origcoor
+    ref_interval = [0.]*state_origcoor
+    for j in range(state_origcoor):
+        SDI_e[j] = interval([SDI[i,j+1],SDI[i,j+num_state+1]])
+    for k in range(3):
+        ref_interval[k] = interval(ref[i,k])
+        
+    SDIx_orig = erroPos2origPos(SDI_e,ref_interval,1)
+    for l in range(state_origcoor):
+        SDI_orig[i,l] = SDIx_orig[l][0][0]
+        SDI_orig[i,l+state_origcoor] = SDIx_orig[l][0][1]
+        
 np.savetxt('DI_CST_orig.csv', DI_CST_orig, delimiter=',')    
+np.savetxt('SDI_orig.csv', SDI_orig, delimiter=',')  
 np.savetxt('sample_orig.csv', sample_orig, delimiter=',')          
         
 #for j in range(2):

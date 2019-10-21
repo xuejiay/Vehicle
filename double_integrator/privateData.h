@@ -15,14 +15,14 @@
 #define samples                         4
 #define num_loop                        2
 #define num_uncertainties               0
-#define num_piecewise                   10
+#define num_piecewise                   9
 /* Tolerance for the solver*/
 #define RTOL     RCONST(1.0e-6)   /* scalar relative tolerance            */
 #define ATOL     RCONST(1.0e-6)    // scalar absolute tolerance for original system
 #define Ith(v,i)    NV_Ith_S(v,i-1)       /* Ith numbers components 1..NEQ */
 
 #define File_Output              0                                      //whether output data of sampling
-#define File_Output_SDI          0                                     //whether output data of SDI bd
+#define File_Output_SDI          1                                     //whether output data of SDI bd
 #define File_Output_DI           0                                      //whether output data of DI with constraints bd
 #define File_Output_DI_advance   0                                      //whether output data of DI with constraints and z bd
 

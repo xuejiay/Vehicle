@@ -95,7 +95,7 @@ int trajectories(double X0[2*num_state_variable], double Uncertainty[2*num_uncer
 
             for(int pctime=0;pctime<num_piecewise;pctime++) {
 
-                double tfinal = Tf + TMULT * NOUT;
+                double tfinal = Tf + TMULT * (NOUT-1);
 
                 for (int j = 0; j < num_reference_input; j++) {
                     (*data).referenceInput[j] = Input.InputReference[pctime * num_reference_input + j];

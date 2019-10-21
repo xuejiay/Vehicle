@@ -182,7 +182,8 @@ IA rhsI(double t, IA *x_vector, IA *p, IA *ref, int i) {
             break;
         }
         case 12:{
-
+//            IA TAN_int = IA(tan(x_vector[13].l()),tan(x_vector[13].u()));
+//            fx = v * IA(tan(x_vector[13].l()),tan(x_vector[13].u())) / l;
             fx = v * tan(x_vector[13])/l;
             break;
         }
@@ -411,6 +412,10 @@ void refinement_advance(IA x_vector[num_state_redundant_advance], IA *p) {
 
         IA invers_delta = atan(length*x_vector[4]);
         extendIntersection(&x_vector[13], invers_delta);
+//        std::cout<<"delta is"<<x_vector[13]<< std::endl;
+//        if(x_vector[13].l()<-1.5){
+//            std::cout<<"stop"<< std::endl;
+//        }
 
 
         invers_et = cos(x_vector[16])*(x_vector[10]-x_vector[14]) + sin(x_vector[16])*(x_vector[11]-x_vector[15]);

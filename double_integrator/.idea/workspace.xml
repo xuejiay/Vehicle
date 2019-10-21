@@ -12,17 +12,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f79de9a-f02b-491d-a990-e9230b95373a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Example1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/DI_CST.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/DI_CST.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/DI_CST_advance.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/DI_CST_advance.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/SDI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/SDI.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/trajSampling.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Example1.dir/trajSampling.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/Example1" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/Example1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Example1/privateData.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Example1/privateData.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Get_Info.h" beforeDir="false" afterPath="$PROJECT_DIR$/Get_Info.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/DI_CST.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/DI_CST.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/DI_CST_advance.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/DI_CST_advance.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/SDI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/SDI.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/rhs.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/rhs.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/trajSampling.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/double_integrator.dir/trajSampling.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/States.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/States.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/StatesBD_DI_CST.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/StatesBD_DI_CST.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/StatesBD_DI_CST_advance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/StatesBD_DI_CST_advance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/StatesBD_SDI.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/StatesBD_SDI.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/double_integrator" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/double_integrator" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/$\kappa_{\delta}$.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/DI_CST_orig.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/DI_CST_orig.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/States.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/States.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_DI_CST.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_DI_CST.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_DI_CST_advance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_DI_CST_advance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_SDI.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/StatesBD_SDI.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/coordtrans2.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/coordtrans2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/plotcpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/plotcpp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_and_coordTrans/sample_orig.csv" beforeDir="false" afterPath="$PROJECT_DIR$/plot_and_coordTrans/sample_orig.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/privateData.h" beforeDir="false" afterPath="$PROJECT_DIR$/privateData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scr/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../scr/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhs.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/rhs.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/Get_Info.h" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/Get_Info.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/DI_CST.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/DI_CST.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/DI_CST_advance.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/DI_CST_advance.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/SDI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/SDI.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/trajSampling.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/CMakeFiles/Kinematics.dir/trajSampling.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kinematics/cmake-build-debug/Kinematics" beforeDir="false" afterPath="$PROJECT_DIR$/../kinematics/cmake-build-debug/Kinematics" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scr/DI_CST.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../scr/DI_CST.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scr/DI_CST_advance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../scr/DI_CST_advance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scr/trajSampling.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../scr/trajSampling.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,34 +117,35 @@
     <session id="-183674154">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.2" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="3" />
-          <entry key="h" value="1" />
-          <entry key="hpp" value="6" />
+          <entry key="cpp" value="5" />
+          <entry key="h" value="2" />
+          <entry key="hpp" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="10" />
+          <entry key="ObjectiveC" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="1296" />
-          <entry key="h" value="299" />
-          <entry key="mm" value="80" />
+          <entry key="cpp" value="1507" />
+          <entry key="h" value="323" />
+          <entry key="mm" value="100" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="1675" />
+          <entry key="ObjectiveC" value="1930" />
         </counts>
       </usages-collector>
     </session>
@@ -109,31 +153,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding>
-                <element signature="e#42#65#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/privateData.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+            <state relative-caret-position="360">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -141,35 +173,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rhs.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="233" selection-start-line="233" selection-end-line="233" />
+            <state relative-caret-position="132">
+              <caret line="417" column="10" selection-start-line="417" selection-start-column="10" selection-end-line="417" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/MC++/include/interval.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="807" selection-start-line="807" selection-end-line="807" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Get_Info.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
+            <state relative-caret-position="153">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DI_CST.cpp">
+        <entry file="file://$PROJECT_DIR$/includInfo.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DI_CST_advance.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="314">
+              <caret line="45" column="37" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -179,6 +211,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DI_CST_advance.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="70" column="81" selection-start-line="70" selection-start-column="81" selection-end-line="70" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trajSampling.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -200,6 +250,7 @@
       <find>13</find>
       <find>atan</find>
       <find>std</find>
+      <find>T0</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,11 +260,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/trajSampling.cpp" />
-        <option value="$PROJECT_DIR$/rhs.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/privateData.h" />
         <option value="$PROJECT_DIR$/Get_Info.h" />
+        <option value="$PROJECT_DIR$/DI_CST.cpp" />
+        <option value="$PROJECT_DIR$/rhs.cpp" />
+        <option value="$PROJECT_DIR$/DI_CST_advance.cpp" />
+        <option value="$PROJECT_DIR$/trajSampling.cpp" />
+        <option value="$PROJECT_DIR$/privateData.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -227,7 +280,7 @@
     <option name="x" value="22" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
-    <option name="height" value="776" />
+    <option name="height" value="779" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -299,32 +352,44 @@
       <workItem from="1566916759646" duration="27296000" />
       <workItem from="1567029651863" duration="2774000" />
       <workItem from="1567102901913" duration="9237000" />
+      <workItem from="1567989385968" duration="4792000" />
+      <workItem from="1568080962325" duration="1225000" />
+      <workItem from="1571680487040" duration="5256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54220000" />
+    <option name="totallyTimeSpent" value="65493000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="22" y="23" width="1400" height="776" extended-state="0" />
+    <frame x="22" y="23" width="1400" height="779" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26804122" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27466863" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32980332" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.32980332" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39939487" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4992636" visible="true" weight="0.32831326" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990964" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298193" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32980332" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32831326" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3298193" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073636" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="CMake" order="12" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3298193" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -383,6 +448,16 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>(*data).stateI</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>x_vector[13]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>u</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -417,21 +492,6 @@
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>vd</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>-k3* pow(ev,2.)</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>-vd*k2*pow(efi,2.)-k3* pow(ev,2.)</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -463,10 +523,17 @@
     <entry file="file://$PROJECT_DIR$/../scr/MainHeader.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/trajSampling.cpp">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
+        <state relative-caret-position="150">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DI_CST.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -477,62 +544,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/includInfo.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="314">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/MC++/include/interval.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="828" column="4" selection-start-line="828" selection-end-line="828" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#42#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateData.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rhs.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DI_CST_advance.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DI_CST.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="108">
+          <caret line="807" selection-start-line="807" selection-end-line="807" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Get_Info.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
+        <state relative-caret-position="153">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DI_CST_advance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="70" column="81" selection-start-line="70" selection-start-column="81" selection-end-line="70" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trajSampling.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rhs.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="417" column="10" selection-start-line="417" selection-start-column="10" selection-end-line="417" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privateData.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
         </state>
       </provider>
     </entry>
